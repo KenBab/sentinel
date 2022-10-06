@@ -1,0 +1,43 @@
+// Title:           Check Point FireWall (FW) Parser
+// Author:          Kendri Van Rooyen
+// Version:         1.0
+// Last Updated:    15/09/2022
+// Comment:         Initial Release
+//  
+// DESCRIPTION:
+// This parser takes raw Check Point logs from a Syslog stream and parses the logs into a normalized schema.
+//
+// USAGE:
+// 1. Open Log Analytics/Azure Sentinel Logs blade. Copy the query below and paste into the Logs query window. 
+// 2. Click the Save button above the query. A pane will appear on the right, select "as Function" from the drop down. Enter a Function Name.
+//    It is recommended to name the Function Alias, as CheckpointFW
+// 3. Kusto Functions can typically take up to 15 minutes to activate. You can then use Function Alias for other queries.
+//
+// REFERENCES: 
+// Using functions in Azure monitor log queries: https://docs.microsoft.com/azure/azure-monitor/log-query/functions
+//
+// LOG SAMPLES:
+// This parser assumes the raw log are formatted as follows:
+//
+// Sep 15 15:28:17 10.79.192.10 CEF: 0|Check Point|VPN-1 & FireWall-1|Check Point|Log|echo-request|Unknown|act=Accept cn2Label=ICMP Type cn2=8 cn3Label=ICMP Code cn3=0 deviceDirection=0 rt=1663255698000 cs2Label=Rule Name cs2=Implied Rule  layer_name=BACKEND-CM-RZ Security layer_uuid=38960c38-ea4f-4031-b957-34b378c15b51 match_id=0 parent_rule=0 rule_action=Accept rule_uid=0E3B6801-8AB0-4b1e-A317-8BE33055FB43 ifname=bond1.103 logid=0 loguid={0xcb024317,0x9e1fa74d,0xb5e5ee5a,0x9ff6220a} origin=10.79.239.46 originsicname=CN\=ROZZANO-02_ROZZANO-BE,O\=gw-312f1f..os24a8 sequencenum=149 version=5 dst=10.171.8.15 icmp=Echo Request inzone=Internal outzone=Internal product=VPN-1 & FireWall-1 proto=1 service_id=echo-request src=10.79.224.171
+//
+//
+CommonSecurityLog
+| where DeviceVendor == "Check Point" and DeviceProduct == "VPN-1 & FireWall-1"
+| extend LayerName = extract(@"layer_name=([^;]+)\;",1,AdditionalExtensions)
+| extend LayerUUID = extract(@"layer_uuid=([^;]+)\;",1,AdditionalExtensions)
+| extend MatchID = extract(@"match_id=([^;]+)\;",1,AdditionalExtensions)
+| extend ParentRule = extract(@"parent_rule=([^;]+)\;",1,AdditionalExtensions)
+| extend RuleAction = extract(@"rule_action=([^;]+)\;",1,AdditionalExtensions)
+| extend RuleUID = extract(@"rule_uid=([^;]+)\;",1,AdditionalExtensions)
+| extend ifName = extract(@"ifname=([^;]+)\;",1,AdditionalExtensions)
+| extend LogID = extract(@"logid=([^;]+)\;",1,AdditionalExtensions)
+| extend LogUID = extract(@"loguid=([^;]+)\;",1,AdditionalExtensions)
+| extend Origin = extract(@"origin=([^;]+)\;",1,AdditionalExtensions)
+| extend OriginICName = extract(@"originsicname=([^;]+)\;",1,AdditionalExtensions)
+| extend SequenceNum = extract(@"sequencenum=([^;]+)\;",1,AdditionalExtensions)
+| extend Version = extract(@"version=([^;]+)\;",1,AdditionalExtensions)
+| extend InZone = extract(@"inzone=([^;]+)\;",1,AdditionalExtensions)
+| extend OutZone = extract(@"outzone=([^;]+)\;",1,AdditionalExtensions)
+| extend Product = extract(@"product=([^;]+)\;",1,AdditionalExtensions)
+| extend ServiceID = extract(@"service_id=([^;]+)\;",1,AdditionalExtensions)
