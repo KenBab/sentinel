@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-11-08T16:26:23.474Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 OPR/91.0.4516.106" etag="1r26qRkcoeqOZXHPkZ8Y" version="20.5.3" type="github">
+<mxfile host="app.diagrams.net" modified="2022-11-08T16:29:01.092Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36 OPR/91.0.4516.106" etag="jQ_KrroTwVfWRMXSqXok" version="20.5.3" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1534" dy="860" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -177,11 +177,13 @@
         <mxCell id="_KTPVVqBxTzUOCGwY2Wl-60" value="&lt;font color=&quot;#000000&quot;&gt;Syslog Port 25226&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;rotation=0;labelBackgroundColor=none;" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="486" y="170" as="geometry" />
         </mxCell>
-        <mxCell id="_KTPVVqBxTzUOCGwY2Wl-66" value="&lt;font color=&quot;#000000&quot;&gt;RESTful API over TLS 443&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;rotation=-90;labelBackgroundColor=none;" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="_KTPVVqBxTzUOCGwY2Wl-66" value="&lt;font color=&quot;#000000&quot;&gt;SSL&lt;br&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;rotation=-90;labelBackgroundColor=none;" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="580" y="400" as="geometry" />
         </mxCell>
-        <mxCell id="_KTPVVqBxTzUOCGwY2Wl-68" value="&lt;font color=&quot;#000000&quot;&gt;RESTful API over TLS 443&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;rotation=0;labelBackgroundColor=none;" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="700" y="170" as="geometry" />
+        <mxCell id="_KTPVVqBxTzUOCGwY2Wl-68" value="&lt;font color=&quot;#000000&quot;&gt;SSL&lt;br&gt;&lt;/font&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontColor=#FFFFFF;rotation=0;labelBackgroundColor=none;" vertex="1" connectable="0" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="700" y="170" as="geometry">
+            <mxPoint x="-1" y="3" as="offset" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
